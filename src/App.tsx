@@ -70,9 +70,10 @@ function App() {
   return (
     <AppContainer>
       <MessagesContainer>
-        {receivedMessages?.map((msg: NewMessageType) => {
-          return <MessageBox key={msg.timestamp} message={msg} />;
-        })}
+        {!!receivedMessages?.length &&
+          receivedMessages.map((msg: NewMessageType) => {
+            return <MessageBox key={msg.timestamp} message={msg} />;
+          })}
         {sentMessages?.map((msg) => {
           return (
             <MessageBox
